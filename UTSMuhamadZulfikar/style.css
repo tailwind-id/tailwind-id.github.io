@@ -1,0 +1,198 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+@font-face {
+    font-family: GoogleFont;
+    src: url(SourceSansPro-Regular.ttf);
+  }
+
+.container{
+    font-family: googleFont;
+    line-height: 165%;
+    font-size: 120%;
+    text-align: justify;
+    /* color: #4a4a4a; */
+    color: rgb(255, 255, 255, 0.9);
+    background-color: #212529 !important;
+}
+
+.konten{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 8%;
+}
+
+.konten p{
+    margin-bottom: 3%;
+    margin-top: 3%;
+}
+
+.konten ul li{
+    margin-top: 3%;
+}
+
+.navbar{
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    /* background-color: blueviolet; */
+    background-color: #212529 !important;
+    justify-content: space-between;
+    padding: 1% 3%;
+    align-items: center;
+    z-index: 1;
+}
+
+ul li{
+    display: inline-block;
+    margin-right: 40px;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.imagebanner{
+    height: 400px;
+    background-image: url(./luca-bravo-XJXWbfSo2f0-unsplash.jpg);
+    margin: 3% 0% 5%;
+    background-size: cover;
+}
+
+.imagebanner--articel{
+    background-image: url('./microsoft-edge-4QKqDeAZf-c-unsplash\ \(2\).jpg');
+}
+
+.imagebanner--konten{
+    background-image: url(./pankaj-patel-u2Ru4QBXA5Q-unsplash\ \(1\).jpg);
+}
+
+.transparant{
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.transparant_text{
+    position: absolute;
+    top: 30%;
+    left: 35%;
+}
+
+.container_description h2{
+    text-align: center;
+    margin-bottom: 4%;
+}
+
+.description{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card{
+    width: 29%;
+    margin-left: 2%;
+    padding: 1%;
+    padding-bottom: 2%;
+    margin-bottom: 4%;
+}
+
+.card--artikel{
+    background-color: #212529 !important;
+    border: 1px solid rgb(128, 128, 128, 0.1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.card--artikel:hover{
+    border: 3px solid rgb(128, 128, 128, 0.1);
+}
+
+.imagecard{
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 100px;
+}
+
+.HTML{
+    background-image: url(./file_type_html_icon_130541.svg);
+}
+
+.CSS{
+    background-image: url(./file_type_css_icon_130661.svg);
+}
+
+.JavaScript{
+    background-image: url(./javascript_icon_130900.svg);
+}
+
+.Tailwind{
+    background-image: url(./file_type_tailwind_icon_130128.svg);
+}
+
+.React{
+    background-image: url(./react_original_logo_icon_146374.svg);
+}
+
+.PHP{
+    background-image: url(./file_type_php_icon_130266.svg);
+}
+
+.textcard{
+    margin-top: 10%;
+}
+
+.tagline{
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+
+.textcard h1{
+    font-size: 105%;
+    text-align: justify;
+    margin-bottom: 30%;
+    margin-left: 5%;
+}
+
+.textcard ul li{
+    margin-left: 4%;
+}
+
+.container_content{
+    display: flex;
+    margin-bottom: 7%;
+    flex-wrap: wrap;
+}
+
+.content{
+    width: 38%;
+    margin-right: 7%;
+    margin-left: 5%;
+}
+
+.content p{
+    margin-top: 4%;
+}
+
+.titlecontentartikel{
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.mt-5{
+    margin-top: 8%;
+}
+
+.footer{
+    background-color: blueviolet;
+    text-align: center;
+    padding: 2%;
+}
+
+.ml-2{
+    margin-left: 5%;
+}
