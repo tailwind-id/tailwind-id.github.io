@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>infografis iteba</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        .font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 font-roboto">
+    <!-- Navbar Start -->
+    <nav
+        class="flex fixed top-0 left-0 right-0 items-center justify-between gap-x-5 p-3 px-5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+        <h1 class="lg:text-xl text-base font-medium text-white">Progress belajar Mahasiswa</h1>
+        <select class="bg-emerald-500 text-white rounded-xl p-2" name="" id="selectStudyPrograms">
+            <option class="bg-white text-black" value="Sistem Informasi">Pilih Program Studi</option>
+            <option class="bg-white text-black" value="Sistem Informasi">Sistem Informasi</option>
+            <option class="bg-white text-black" value="Teknik Komputer">Teknik Komputer</option>
+            <option class="bg-white text-black" value="Matematika">Matematika</option>
+        </select>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Container Main Start -->
+    <main class="infografis flex overflow-x-hidden">
+        <!-- Aside Start -->
+        <aside
+            class="w-56 lg:block fixed top-20 bottom-0 hidden lg:static lg:flex flex flex-col gap-y-10 bg-slate-800 text-white lg:pt-24 pt-5 pl-8">
+            <p>Mahasiswa</p>
+            <p>Dosen</p>
+            <p>Alumni</p>
+            <p>Lulusan</p>
+            <p>biodata</p>
+            <p>akademik</p>
+        </aside>
+        <!-- Aside End -->
+        <!-- container Start -->
+        <section class="mt-32 px-10 pb-10">
+            <!-- Pilih Tahun Angkatan Start -->
+            <div class="flex gap-x-10">
+                <h2 class="lg:text-xl font-semibold ml-2">Detail lulusan <span id="studyProgram">Sistem Informasi</span> tahun angkatan <span id="year">2018</span></h2>
+                <select class="bg-emerald-500 text-white rounded-xl p-2" name="" id="selectYears">
+                    <option class="bg-white text-black" value="2018">Pilih Tahun Angkatan</option>
+                    <option class="bg-white text-black" value="2018">2018</option>
+                    <option class="bg-white text-black" value="2019">2019</option>
+                    <option class="bg-white text-black" value="2020">2020</option>
+                    <option class="bg-white text-black" value="2021">2021</option>
+                    <option class="bg-white text-black" value="2022">2022</option>
+                </select>
+            </div>
+            <!-- Pilih Tahun Angkatan End -->
+            <!-- Detail Container Start -->
+            <section class="lg:grid lg:grid-cols-2 gap-x-10 gap-y-10 mt-5">
+                <!-- Detail lulusan Start -->
+                <section class="card bg-white mb-10 flex flex-col justify-around shadow-lg rounded h-80 p-2">
+                    <div class="flex justify-between px-5 lg:text-lg font-medium">
+                        <h3>Rata-rata IPK</h3>
+                        <p>3.75</p>
+                    </div>
+
+                    <div class="flex justify-between px-5 lg:text-lg font-medium">
+                        <h3>Rata-rata lama kuliah</h3>
+                        <p>4 tahun</p>
+                    </div>
+
+                    <div class="flex justify-between px-5 lg:text-lg font-medium">
+                        <h3>Rata-rata lama menganggur</h3>
+                        <p>6 bulan</p>
+                    </div>
+
+                    <div class="flex justify-between px-5 lg:text-lg font-medium">
+                        <h3>mendapat pekerjaan linier</h3>
+                        <p>80 %</p>
+                    </div>
+                </section>
+                <!-- Detail Lulus end -->
+
+                <!-- Chart Detail Lulus Start -->
+                <section class="card bg-white shadow-lg rounded h-80">
+                    <div class="py-4 lg:w-[37rem] h-80 lg:px-36 mb-4 rounded-xl">
+                        <canvas id="chart-pie">
+                    </div>
+                </section>
+                <!-- Chart Detail Lulus End -->
+            </section>
+            <!-- Detail Container end -->
+
+            <!-- Perbandingan Rata-rata Start -->
+            <h2 class="lg:text-xl font-semibold mb-1 mt-16 ml-2">Perbandingan Rata-rata IPK Program Studi <span id="studyProgram2">Sistem Informasi</span> tahun angkatan 2018 - 2022
+            </h2>
+            <section class="lg:grid lg:grid-cols-2 gap-x-10 gap-y-10 mt-5">
+                <section class="card mb-10 bg-white shadow-lg rounded h-80 p-2 w-full">
+                    <div class="py-4 w-full h-full pr-1 mb-4 rounded-xl">
+                        <canvas id="chart-line"></canvas>
+                    </div>
+                </section>
+
+                <section class="card bg-white shadow-lg rounded h-80 p-2 w-full">
+                    <div class="py-4 w-full h-full pr-1 mb-4 rounded-xl">
+                        <canvas id="chart-bar"></canvas>
+                    </div>
+                </section>
+            </section>
+        </section>
+        <!-- Perbandingan Rata-rata end -->
+        <!-- Container End -->
+    </main>
+    <!-- Container Main End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+    <script src="acquisitions.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>

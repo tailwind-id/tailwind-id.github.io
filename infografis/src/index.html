@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>infografis iteba</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        .font-roboto {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-slate-50 font-roboto">
+    <!-- Navbar Start -->
+    <nav style="z-index: 1;"
+        class="flex fixed top-0 left-0 right-0 items-center justify-between gap-x-5 p-3 px-5 bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600">
+        <h1 class="lg:text-xl text-base font-medium text-white">Progress belajar Mahasiswa</h1>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Container Main Start -->
+    <main class="infografis flex gap-x-10 overflow-x-hidden">
+        <!-- Aside Start -->
+        <aside
+            class="w-56 lg:block fixed top-12 lg:top-0 bottom-0 hidden lg:flex flex flex-col gap-y-10 bg-slate-800 text-white lg:pt-24 pt-7 pl-8">
+            <div>
+                <button class="hover:bg-gray-700 inline-block p-1 rounded">Mahasiswa</button>
+            </div>
+            <div>
+                <button class="hover:bg-gray-700 inline-block p-1 rounded">Dosen</button>
+            </div>
+            <div>
+                <button class="hover:bg-gray-700 inline-block p-1 rounded">Alumni</button>
+            </div>
+            <div>
+                <button class="hover:bg-gray-700 inline-block p-1 rounded">Lulusan</button>
+            </div>
+            <div>
+                <button class="hover:bg-gray-700 inline-block p-1 rounded">biodata</button>
+            </div>
+            <div>
+                <p class="hover:bg-gray-700 inline-block p-1 rounded cursor-pointer">akademik</p>
+            </div>
+        </aside>
+        <!-- Aside End -->
+        <div class="lg:w-56 lg:block hidden"></div>
+        <!-- container Start -->
+        <section class="pt-32 w-full px-10 pb-10">
+            <div class="flex items-center flex-wrap gap-x-5 gap-y-2 mb-8">
+                <h2 class="lg:text-xl font-semibold ml-2">Detail Lulusan Mahasiswa</h2>
+                <select class="bg-emerald-500 text-white rounded-xl p-2" name="" id="selectStudyPrograms">
+                    <option class="bg-white text-black" value="Sistem Informasi">Pilih Program Studi</option>
+                    <option class="bg-white text-black" value="Sistem Informasi">Sistem Informasi</option>
+                    <option class="bg-white text-black" value="Teknik Komputer">Teknik Komputer</option>
+                    <option class="bg-white text-black" value="Matematika">Matematika</option>
+                </select>
+            </div>
+            <div id="menu" class="flex flex-col gap-y-5 mt-5">
+                <button onclick="showHiddenMenu()"
+                    class="bg-gray-200 w-full p-2 px-5 rounded-xl text-lg flex items-center justify-between">
+                    Rata-rata IPK
+                    <ion-icon class="icon" name="caret-forward-outline"></ion-icon>
+                </button>
+                <div id="rataRata" class="mt-5 hidden transition duration-3000 ease-in-out">
+                    <h2 class="lg:text-xl font-semibold mb-1 ml-2">Perbandingan Rata-rata IPK tahun angkatan 2018 -
+                        2022
+                    </h2>
+                    <section class="lg:grid lg:grid-cols-2 gap-x-10 gap-y-10 mt-5">
+                        <section class="card mb-10 bg-white shadow-lg rounded h-80 p-2 w-full">
+                            <div class="py-4 w-full h-full pr-1 mb-4 rounded-xl">
+                                <canvas id="chart-line"></canvas>
+                            </div>
+                        </section>
+
+                        <section class="card bg-white shadow-lg rounded h-80 p-2 w-full">
+                            <div class="py-4 w-full h-full pr-1 mb-4 rounded-xl">
+                                <canvas id="chart-bar"></canvas>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+                <button onclick="showHiddenMenu2()"
+                    class="bg-gray-200 w-full p-2 px-5 rounded-xl text-lg flex items-center justify-between">
+                    Rata-rata Lama Kuliah
+                    <ion-icon name="caret-forward-outline"></ion-icon>
+                </button>
+                <div id="lamaKuliah" class="mt-5 hidden transition duration-3000 ease-in-out">
+                    <h2 class="lg:text-xl font-semibold mb-1 ml-2">Perbandingan Rata-rata IPK tahun angkatan 2018 -
+                        2022
+                    </h2>
+                    <section class="lg:grid lg:grid-cols-2 gap-x-10 gap-y-10 mt-5">
+                        <section class="card mb-10 bg-white shadow-lg rounded h-80 p-2 w-full">
+                            <div class="py-4 w-full h-full pr-1 mb-4 rounded-xl">
+                                <canvas id="chart-line"></canvas>
+                            </div>
+                        </section>
+
+                        <section class="card bg-white shadow-lg rounded h-80 p-2 w-full">
+                            <div class="py-4 w-full h-full pr-1 mb-4 rounded-xl">
+                                <canvas id="chart-bar"></canvas>
+                            </div>
+                        </section>
+                    </section>
+                </div>
+                <button class="bg-gray-200 w-full p-2 px-5 rounded-xl text-lg flex items-center justify-between">
+                    Rata-rata lama menganggur
+                    <ion-icon name="caret-forward-outline"></ion-icon>
+                </button>
+                <button class="bg-gray-200 w-full p-2 px-5 rounded-xl text-lg flex items-center justify-between">
+                    Mendapat pekerjaan Sesuai
+                    <ion-icon name="caret-forward-outline"></ion-icon>
+                </button>
+            </div>
+            <!-- Container End -->
+    </main>
+    <!-- Container Main End -->
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="acquisitions.js"></script>
+    <script src="./index.js"></script>
+</body>
+
+</html>
