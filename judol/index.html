@@ -1,96 +1,140 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Game Keberuntungan</title>
-  <style>
-   body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Keberuntungan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .container {
-      max-width: 400px;
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    }
+        .center{
+            text-align: center;
+        }
 
-    h1 {
-      color: #333;
-    }
+        .container {
+            width: 100%;
+            height: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            box-sizing: border-box;
+        }
 
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+        h1 {
+            color: #333;
+        }
 
-    button:hover {
-      background-color: #0056b3;
-    }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-    p {
-      font-size: 18px;
-      font-weight: bold;
-      margin-top: 20px;
-    }
-  </style>
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 20px;
+            opacity: 0; /* Mula-mula atur opasitas menjadi 0 */
+            animation: fadeInOut 300ms ease-in-out forwards; /* Animasi fade in/fade out */
+        }
+
+        /* Animasi fade in/fade out */
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Game Keberuntungan</h1>
-    <button id="generateButton">Tekan untuk Menghasilkan Angka</button>
-    <p id="resultMessage"></p>
-  </div>
+    <div class="container">
+        <p style="text-align: right;">Deposit Anda : Rp.<span id="deposit"></span></p>
+        <div class="center">
+            <h1>Judi Online</h1>
+            <button id="generateButton">Spin Untuk Mendapat Gacor</button>
+            <div id="render"></div>
+        </div>
+    </div>
 
-  <script>
-    // Fungsi untuk menghasilkan angka acak antara 1 dan 10000
-    function generateRandomNumber() {
-      return Math.floor(Math.random() * 10000) + 1;
-    }
+    <script>
+        const generateButton = document.getElementById("generateButton");
+        const render = document.getElementById('render');
+        const deposit = document.getElementById('deposit');
+        let depositAmount = 1000000;
+        deposit.textContent = depositAmount;
+        const numbersToMatch = [9080, 6929, 4800];
 
-    // Angka-angka yang harus cocok untuk menang
-    const numbersToMatch = [9080, 6929, 4800];
+        function checkWinningNumber(randomNumber) {
+            if (numbersToMatch.includes(randomNumber)) {
+                return "Selamat Anda adalah pemenang!";
+            } else {
+                return "Maaf Anda belum beruntung";
+            }
+        }
 
-    // Fungsi untuk memeriksa apakah angka cocok dengan salah satu dari angka di atas
-    function checkWinningNumber(randomNumber) {
-      if (numbersToMatch.includes(randomNumber)) {
-        return "Selamat Anda adalah pemenang!";
-      } else {
-        return "Maaf Anda belum beruntung";
-      }
-    }
+        generateButton.addEventListener("click", function () {
+            let child = render.lastElementChild;
 
-    const generateButton = document.getElementById("generateButton");
-    const resultMessage = document.getElementById("resultMessage");
+            while (child) {
+                child.remove();
+                child = render.lastElementChild;
+            }
 
-    generateButton.addEventListener("click", function () {
-      // Menghasilkan angka acak
-      const randomNum = generateRandomNumber();
+            let randomNumber = Math.floor(Math.random() * 10000) + 1;
 
-      // Memeriksa apakah angka tersebut adalah angka pemenang
-      const message = checkWinningNumber(randomNum);
+            switch (depositAmount) {
+                case 990000:
+                randomNumber = 4800;
+                    break;
+                case 975000:
+                randomNumber = 4800;
+                    break;
+                case 950000:
+                randomNumber = 4800;
+                    break;
+                case 900000:
+                randomNumber = 4800;
+            }
 
-      // Menampilkan pesan hasil
-      resultMessage.textContent = message;
-    });
+            const message = checkWinningNumber(randomNumber);
 
-    // Menambahkan event listener untuk mereset pesan saat tombol ditekan lagi
-    generateButton.addEventListener("click", function () {
-      resultMessage.textContent = "";
-    });
-  </script>
+            const resultMessage = document.createElement('p');
+            resultMessage.textContent = message;
+
+            const showNumber = document.createElement('p');
+            showNumber.textContent = randomNumber;
+            
+            render.appendChild(showNumber);
+            render.appendChild(resultMessage);
+
+            depositAmount -= 5000;
+            deposit.textContent = depositAmount;
+        });
+    </script>
 </body>
+
 </html>
