@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Keberuntungan</title>
   <style>
-    body {
+   body {
       font-family: Arial, sans-serif;
       background-color: #f0f0f0;
       text-align: center;
@@ -85,6 +85,11 @@
 
       // Menampilkan pesan hasil
       resultMessage.textContent = message;
+    });
+
+    // Menambahkan event listener untuk mereset pesan saat tombol ditekan lagi
+    generateButton.addEventListener("click", function () {
+      resultMessage.textContent = "";
     });
   </script>
 </body>
