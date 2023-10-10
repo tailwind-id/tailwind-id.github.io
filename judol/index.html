@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Keberuntungan</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Game Keberuntungan</h1>
+    <button id="generateButton">Tekan untuk Menghasilkan Angka</button>
+    <p id="resultMessage"></p>
+  </div>
+
+  <script>
+    // Fungsi untuk menghasilkan angka acak antara 1 dan 10000
+    function generateRandomNumber() {
+      return Math.floor(Math.random() * 10000) + 1;
+    }
+
+    // Angka-angka yang harus cocok untuk menang
+    const numbersToMatch = [9080, 6929, 4800];
+
+    // Fungsi untuk memeriksa apakah angka cocok dengan salah satu dari angka di atas
+    function checkWinningNumber(randomNumber) {
+      if (numbersToMatch.includes(randomNumber)) {
+        return "Selamat Anda adalah pemenang!";
+      } else {
+        return "Maaf Anda belum beruntung";
+      }
+    }
+
+    const generateButton = document.getElementById("generateButton");
+    const resultMessage = document.getElementById("resultMessage");
+
+    generateButton.addEventListener("click", function () {
+      // Menghasilkan angka acak
+      const randomNum = generateRandomNumber();
+
+      // Memeriksa apakah angka tersebut adalah angka pemenang
+      const message = checkWinningNumber(randomNum);
+
+      // Menampilkan pesan hasil
+      resultMessage.textContent = message;
+    });
+  </script>
+</body>
+</html>
